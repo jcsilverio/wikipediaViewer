@@ -26,25 +26,29 @@ $("#searchButton").click(function() {
         // remove cite error
         //blurb.find('.mw-ext-cite-error').remove();
         //  $('#wikiViewer').html($(blurb).find('p'));
-      results = data.query.pages;
-      var pageNum;
-      var pageId = '<a href="https://en.wikipedia.org/?curid=' + pageNum;
-      var  $searchListingBegin = '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">';
-      var heading;
-      var $searchListingMid = '</h4><p class="list-group-item-text">';
-      var extract;
-      var $searchListingEnd = '</p></a>';
-      for (var key in results) {
-        heading = results[key].title;
-        extract = results[key].extract;
-        console.log('results key: ', results[key].title);
-        var $listResult = $searchListingBegin + heading + $searchListingMid + extract  +$searchListingEnd;
+        results = data.query.pages;
+        var pageNum;
+        var $pageId;
+        var $searchListingBegin = ' class="list-group-item"><h4 class="list-group-item-heading">';
+        var heading;
+        var $searchListingMid = '</h4><p class="list-group-item-text">';
+        var extract;
+        var $searchListingEnd = '</p></a>';
+        for (var key in results) {
+          pageNum = results[key].pageid;
+          $pageId = '<a href="https://en.wikipedia.org/?curid=' + pageNum + '"';
+          heading = results[key].title;
+          extract = results[key].extract;
+          console.log('pagenum: ',pageNum);
+          console.log('results key: ', $pageId);
 
-        $("#searchResults").append($listResult);
-      }
+          var $listResult = $pageId + $searchListingBegin + heading + $searchListingMid + extract + $searchListingEnd;
+
+          $("#searchResults").append($listResult);
+        }
 
 
-      console.log('results: ',results);
+        console.log('results: ', results);
 
 
       },
