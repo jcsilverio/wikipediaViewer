@@ -26,6 +26,7 @@ $("#searchButton").click(function() {
         // remove cite error
         //blurb.find('.mw-ext-cite-error').remove();
         //  $('#wikiViewer').html($(blurb).find('p'));
+        $("#searchResults").html(' ');
         results = data.query.pages;
         var pageNum;
         var $pageId;
@@ -39,17 +40,13 @@ $("#searchButton").click(function() {
           $pageId = '<a href="https://en.wikipedia.org/?curid=' + pageNum + '"';
           heading = results[key].title;
           extract = results[key].extract;
-          console.log('pagenum: ',pageNum);
-          console.log('results key: ', $pageId);
 
           var $listResult = $pageId + $searchListingBegin + heading + $searchListingMid + extract + $searchListingEnd;
 
           $("#searchResults").append($listResult);
         }
 
-
         console.log('results: ', results);
-
 
       },
       error: function(errorMessage) {}
