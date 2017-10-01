@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <title>Wikipedia Viewer</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="bootswatch.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <div class="container-fluid">
+    <div class="jumbotron animated">
+      <div class="row" id="buttonForm">
+        <form class="navbar-form navbar-left " role="search">
+          <div class="form-group">
+            <input type="text" class="form-control animated slideInLeft" placeholder="Search">
+          </div>
+          <button type="button" class="btn btn-primary animated slideInRight" id="searchButton"><i class="fa fa-search"> </i> Search</button>
+          <button type="button" class="btn btn-success animated slideInRight" id="randomButton"><i class="fa fa-random"> </i> Random Topic</button>
+        </form>
+      </div>
+      <div class="row" id="wikiViewer">
+        <h1>Wikipedia Viewer</h1>
+        <p>Search for your desired Wikipedia article, or view a random topic.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <!-- Wikipedia Listings -->
+    <div class="list-group" id="searchResults">
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      </a>
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      </a>
+    </div>
+  </div>
+  <!-- /.container -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+  $(document).ready(function() {
+$("#searchResults").show();
+  });
+  </script>
+
+  <script>
+  $("#randomButton").click(function() {
+    $("#wikiViewer").html('<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="https://en.wikipedia.org/wiki/Special:Random"></iframe>');
+
+
+
+  });
+  </script>
+    <!--<script>
+  //$("#searchButton").click(function () {
+  //
+
+  // });
+  </script> -->
+  <div class="text-center footer">
+    <p>Handmade by <a href="https://www.linkedin.com/in/joellesilverio" target="_blank">me</a> © 2017.</p>
+  </div>
+</body>
+
+</html>
