@@ -61,7 +61,7 @@ function getRealPage() {
         if (Number(key) === listPageNum) {
 
           var fullurl = pageResults[key].fullurl;
-          updateFrameHTML = '<iframe class="animated bounceInLeft" width="325px" height="400px" frameborder="0" src="' + fullurl + '"></iframe>';
+          updateFrameHTML = '<iframe class="animated bounceInLeft" width="325px" height="325px" frameborder="0" src="' + fullurl + '"></iframe>';
 
           $("html, body").animate({ scrollTop: 0, duration: 500, queue: false });
           $("#wikiViewer").html(updateFrameHTML);

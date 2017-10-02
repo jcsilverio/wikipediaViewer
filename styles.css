@@ -26,13 +26,13 @@ body {
 
 .gap-right {
   margin-right: 10px;
+
 }
 
 .mobile {
  margin-left: 15px;
  margin-right: 15px;
+ margin-top: 2px;
 }
 
-.card-block {
-  height: 300px;
-}
+
