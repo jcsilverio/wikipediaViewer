@@ -5,10 +5,12 @@ var pageNum;
 var id;
 var updateFrameHTML;
 
+
+
 var searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("keydown", function(e) {
   if (e.keyCode === 13) { //checks whether the pressed key is "Enter"
- init();
+    init();
     e.preventDefault();
   }
 });
@@ -49,9 +51,6 @@ function getRealPage() {
     }
   });
 }
-
-
-
 
 function init() {
   listInfo = [];
@@ -106,10 +105,7 @@ function init() {
 
           listInfo.push({ "listIndex": index, "$pageIdNum": pageNum, "pageHeading": heading });
 
-
         }
-
-
 
       },
       error: function(errorMessage) {}

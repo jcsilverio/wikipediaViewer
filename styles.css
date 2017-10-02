@@ -20,7 +20,8 @@ body {
 
 
 .toHighlight:hover {
-  background-color: rgb(62, 68, 76)
+  background-color: rgb(62, 68, 76);
+  cursor: pointer;
 }
 
 .gap-right {
