@@ -64,7 +64,6 @@
   <script>
     $(document).ready(function() {
       $("#backButton").hide();
-
 });
   </script>
 
@@ -72,6 +71,7 @@
   $("#randomButton").click(function() {
     $("#wikiViewer").html('<iframe class="animated bounceInLeft" width="100%" height="400px" frameborder="0" src="https://en.wikipedia.org/wiki/Special:Random"></iframe>');
      $("#wikiViewer").show();
+     $("#searchResults").hide();
   });
   </script>
   <div class="text-center footer">

@@ -39,11 +39,8 @@ $("#searchResults").on('click', '.list-group-item', getRealPage);
 
 
 function getRealPage() {
-  if(document.getElementById('searchInput').value === usersSearch){
-    $("#searchResults").show();
-  } else {
-    $("#searchResults").hide();
-  }
+
+  $("#searchResults").hide();
   $("#wikiViewer").hide();
   $("#backButton").show();
 
@@ -79,6 +76,7 @@ function getRealPage() {
 function init() {
   $("#wikiViewer").html('');
   $("#wikiViewer").hide();
+  $("#searchResults").show();
 
   listInfo = [];
   usersSearch = document.getElementById('searchInput').value;
