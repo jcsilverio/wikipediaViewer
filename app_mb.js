@@ -90,7 +90,7 @@ function init() {
           if (usersSearch.length === 0) { //empty search box, do nothing
             return;
           }
-          var noResultHTML = '<div class="animated fadeInUp clearfix text-center"><h3>Your seach yielded no results<h3> </div>';
+          var noResultHTML = '<div class=" animated fadeInUp clearfix text-center"><h3>Your seach yielded no results<h3> </div>';
           $("#searchResults").html(noResultHTML);
 
         } else {
