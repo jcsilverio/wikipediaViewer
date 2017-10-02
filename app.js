@@ -5,7 +5,20 @@ var pageNum;
 var id;
 var updateFrameHTML;
 
+var searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("keydown", function(e) {
+  if (e.keyCode === 13) { //checks whether the pressed key is "Enter"
+ init();
+    e.preventDefault();
+  }
+});
+
+$("#searchButton").click(function() {
+  init();
+});
+
 $("#searchResults").on('click', '.list-group-item', getRealPage);
+
 
 function getRealPage() {
   id = Number($(this).attr('id'));
@@ -38,7 +51,9 @@ function getRealPage() {
 }
 
 
-$("#searchButton").click(function() {
+
+
+function init() {
   listInfo = [];
   usersSearch = document.getElementById('searchInput').value;
   console.log('usersSearch: ', usersSearch);
@@ -68,7 +83,7 @@ $("#searchButton").click(function() {
           index++;
           $searchListingBegin1 = '<div class="list-group-item toHighlight animated fadeInUp clearfix"' + 'id=' + index + '>';
 
-          $searchListingBegin2 ='<h4 class="list-group-item-heading animated fadeInUp">';
+          $searchListingBegin2 = '<h4 class="list-group-item-heading animated fadeInUp">';
           pageNum = results[key].pageid;
 
           heading = results[key].title + '</h4>';
@@ -85,7 +100,7 @@ $("#searchButton").click(function() {
           console.log('thumbnail: ', thumbnail);
           console.log('thumbnailHTML: ', thumbnailHTML);
 
-          var $listResult =  $searchListingBegin1  + thumbnailHTML + $searchListingBegin2 + heading + $searchListingMid + extract + $searchListingEnd;
+          var $listResult = $searchListingBegin1 + thumbnailHTML + $searchListingBegin2 + heading + $searchListingMid + extract + $searchListingEnd;
 
           $("#searchResults").append($listResult);
 
@@ -102,4 +117,4 @@ $("#searchButton").click(function() {
   } else {
     return;
   }
-});
+}
