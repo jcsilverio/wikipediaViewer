@@ -41,6 +41,7 @@ $("#searchResults").on('click', '.list-group-item', getRealPage);
 function getRealPage() {
   $("#wikiViewer").hide();
   $("#backButton").show();
+  $("#searchResults").hide();
   id = Number($(this).attr('id'));
   var listPageNum = listInfo[id].$pageIdNum;
 
@@ -58,7 +59,7 @@ function getRealPage() {
         if (Number(key) === listPageNum) {
 
           var fullurl = pageResults[key].fullurl;
-          updateFrameHTML = '<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="' + fullurl + '"></iframe>';
+          updateFrameHTML = '<iframe class="animated bounceInLeft" width="100%" height="400px" frameborder="0" src="' + fullurl + '"></iframe>';
 
           $("html, body").animate({ scrollTop: 0, duration: 500, queue: false });
           $("#wikiViewer").html(updateFrameHTML);
@@ -121,6 +122,7 @@ function init() {
 
           listInfo.push({ "listIndex": index, "$pageIdNum": pageNum, "pageHeading": heading });
           searchResultsCalled = true;
+
         }
       },
       error: function(errorMessage) {}
