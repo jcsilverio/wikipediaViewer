@@ -15,7 +15,7 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container-fluid mobile">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
@@ -25,11 +25,9 @@
         </button>
         <a class="navbar-brand" href="index.html">Wikipedia Viewer</a>
       </div>
-
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://github.com/jcsilverio/wikipediaViewer" target="_blank"><i class="fa fa-github"></i></a></li>
       </ul>
-    </div>
     </div>
   </nav>
   <!-- Page Content -->
@@ -38,9 +36,7 @@
       <div class="jumbotron animated">
         <div class="row" id="buttonForm">
           <form class="navbar-form navbar-left " role="search" id="searchForm">
-
-           <input type="text" class="form-control animated slideInLeft" name="searchName" id="searchInput" placeholder="Search...">
-
+            <input type="text" class="form-control animated slideInLeft" name="searchName" id="searchInput" placeholder="Search...">
             <button type="button" class="btn btn-primary animated slideInRight" id="searchButton"><i class="fa fa-search"> </i> Search</button>
             <button type="button" class="btn btn-success animated slideInRight" id="randomButton"><i class="fa fa-random"> </i> Random Topic</button>
           </form>
@@ -61,8 +57,7 @@
   <!-- /.container -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="app.js"></script>
-
+  <script src="app_br.js"></script>
   <script>
   $("#randomButton").click(function() {
     $("#wikiViewer").html('<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="https://en.wikipedia.org/wiki/Special:Random"></iframe>');
