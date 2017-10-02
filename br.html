@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <title>Wikipedia Viewer</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="bootswatch.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Wikipedia Viewer</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/jcsilverio/wikipediaViewer" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+  <!-- Page Content -->
+  <div class="container-fluid">
+    <div class="col-md-8">
+      <div class="jumbotron animated">
+        <div class="row" id="buttonForm">
+          <form class="navbar-form navbar-left " role="search" id="searchForm">
+
+           <input type="text" class="form-control animated slideInLeft" name="searchName" id="searchInput" placeholder="Search...">
+
+            <button type="button" class="btn btn-primary animated slideInRight" id="searchButton"><i class="fa fa-search"> </i> Search</button>
+            <button type="button" class="btn btn-success animated slideInRight" id="randomButton"><i class="fa fa-random"> </i> Random Topic</button>
+          </form>
+          <!-- wiki viewer -->
+        </div>
+        <div class="row" id="wikiViewer">
+          <h1>Wikipedia Viewer</h1>
+          <p>Search for your desired Wikipedia article, or view a random topic.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <!-- Wikipedia Listings -->
+      <div class="list-group" id="searchResults">
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+
+  <script>
+  $("#randomButton").click(function() {
+    $("#wikiViewer").html('<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="https://en.wikipedia.org/wiki/Special:Random"></iframe>');
+  });
+  </script>
+  <div class="text-center footer">
+    <p>Made by <a href="https://www.linkedin.com/in/joellesilverio" target="_blank">me</a> © 2017.</p>
+  </div>
+</body>
+
+</html>
