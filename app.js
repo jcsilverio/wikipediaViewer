@@ -9,8 +9,8 @@ $("#searchResults").on('click', '.list-group-item', getRealPage);
 
 function getRealPage() {
   id = Number($(this).attr('id'));
-  console.log('getRealPage pageNum: ', listInfo[id]["$pageIdNum"]);
-  var listPageNum = listInfo[id]["$pageIdNum"];
+  console.log('getRealPage pageNum: ', listInfo[id].$pageIdNum);
+  var listPageNum = listInfo[id].$pageIdNum;
 
   $.ajax({
     type: "GET",
@@ -26,7 +26,7 @@ function getRealPage() {
 
        if (Number(key) === listPageNum){
 
-        var fullurl = pageResults[key]['fullurl'];
+        var fullurl = pageResults[key].fullurl;
         updateFrameHTML = '<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="' + fullurl +'"></iframe>';
 
       $("#wikiViewer").html(updateFrameHTML);
