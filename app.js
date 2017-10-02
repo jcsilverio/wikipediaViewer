@@ -1,15 +1,12 @@
 var usersSearch;
 var results;
 var listInfo = [];
-var selectedListItem;
 var pageNum;
 var id;
 var updateFrameHTML;
 
 $("#searchResults").on('click', '.list-group-item', getRealPage);
 
-//if id clicked equals matching id in list info
-//populate main page with associated link using iframe
 function getRealPage() {
   id = Number($(this).attr('id'));
   console.log('getRealPage pageNum: ', listInfo[id]["$pageIdNum"]);
@@ -45,6 +42,7 @@ function getRealPage() {
 
 
 $("#searchButton").click(function() {
+  listInfo = [];
   usersSearch = document.getElementById('searchInput').value;
   console.log('usersSearch: ', usersSearch);
   if (!$.trim(($("#searchInput")).value).length) { // string  exists AFTER a trim
@@ -64,13 +62,13 @@ $("#searchButton").click(function() {
 
         var $searchListingBegin;
         var heading;
-        var $searchListingMid = '</h4><p class="list-group-item-text">';
+        var $searchListingMid = '</h4><p class="list-group-item-text animated fadeInUpBig">';
         var extract;
         var $searchListingEnd = '</p></span>';
         var index = -1;
         for (var key in results) {
           index++;
-          $searchListingBegin = '<span class="list-group-item toHighlight"' + 'id=' + index + '><h4 class="list-group-item-heading">';
+          $searchListingBegin = '<span class="list-group-item toHighlight animated fadeInUp"' + 'id=' + index + '><h4 class="list-group-item-heading animated fadeInUp">';
 
           pageNum = results[key].pageid;
 
