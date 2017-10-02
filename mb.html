@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="bootswatch.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles.css">
+
 </head>
 
 <body>
@@ -38,15 +39,16 @@
 
   </nav>
   <!-- Page Content -->
-  <div class="container-fluid mobile">
-       <div class="jumbotron animated">
+  <div class="container-fluid jumbotron animated mobile">
+
+         <button type="button" class="btn btn-primary animated slideInRight" id="backButton"><i class="fa fa-arrow-circle-left"> </i> Back to Search Results</button><p></p>
 
            <!-- wiki viewer -->
         <div class="row" id="wikiViewer">
           <h1>Wikipedia Viewer</h1>
           <p>Search for your desired Wikipedia article, or view a random topic.</p>
         </div>
-      </div>
+
 
 
       <!-- Wikipedia Listings -->
@@ -56,8 +58,14 @@
   </div>
   <!-- /.container -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="app_mb.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#backButton").hide();
+});
+  </script>
 
   <script>
   $("#randomButton").click(function() {

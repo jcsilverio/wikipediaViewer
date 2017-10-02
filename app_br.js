@@ -47,6 +47,7 @@ function getRealPage() {
         }
       }
     }
+
   });
 }
 
@@ -101,7 +102,8 @@ function init() {
         }
 
       },
-      error: function(errorMessage) {}
+      error: function(errorMessage) {
+        $("#searchResults").html($listResult);}
     });
   } else {
     return;

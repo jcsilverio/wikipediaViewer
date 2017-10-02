@@ -4,6 +4,8 @@ var listInfo = [];
 var pageNum;
 var id;
 var updateFrameHTML;
+var searchResultsCalled = false;
+var $listResult;
 
 
 
@@ -19,11 +21,26 @@ $("#searchButton").click(function() {
   init();
 });
 
+$("#backButton").click(function() {
+  if(searchResultsCalled === true){
+  $("#wikiViewer").html('');
+   $("#wikiViewer").hide();
+   $("#backButton").hide();
+  $("#searchResults").hide().fadeIn();
+
+ } else {
+  return;
+ }
+
+
+});
+
 $("#searchResults").on('click', '.list-group-item', getRealPage);
 
 
 function getRealPage() {
   $("#wikiViewer").hide();
+  $("#backButton").show();
   id = Number($(this).attr('id'));
   var listPageNum = listInfo[id].$pageIdNum;
 
@@ -98,11 +115,12 @@ function init() {
             thumbnailHTML = "";
           }
 
-          var $listResult = $searchListingBegin1 + thumbnailHTML + $searchListingBegin2 + heading + $searchListingMid + extract + $searchListingEnd;
+          $listResult = $searchListingBegin1 + thumbnailHTML + $searchListingBegin2 + heading + $searchListingMid + extract + $searchListingEnd;
 
           $("#searchResults").append($listResult);
 
           listInfo.push({ "listIndex": index, "$pageIdNum": pageNum, "pageHeading": heading });
+          searchResultsCalled = true;
         }
       },
       error: function(errorMessage) {}
