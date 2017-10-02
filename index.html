@@ -42,46 +42,41 @@
             </ul>
           </li>
         </ul> -->
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://github.com/jcsilverio/wikipediaViewer" target="_blank"><i class="fa fa-github"></i></a></li>
-        </ul>
-      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/jcsilverio/wikipediaViewer" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
     </div>
   </nav>
   <!-- Page Content -->
   <div class="container-fluid">
     <div class="col-md-8">
-    <div class="jumbotron animated">
-      <div class="row" id="buttonForm">
-        <form class="navbar-form navbar-left " role="search">
-          <div class="form-group">
-            <input type="text" class="form-control animated slideInLeft" name="searchName"  id="searchInput">
-          </div>
-          <button type="button" class="btn btn-primary animated slideInRight" id="searchButton"><i class="fa fa-search"> </i> Search</button>
-          <button type="button" class="btn btn-success animated slideInRight" id="randomButton"><i class="fa fa-random"> </i> Random Topic</button>
-        </form>
-
-        <!-- wiki viewer -->
+      <div class="jumbotron animated">
+        <div class="row" id="buttonForm">
+          <form class="navbar-form navbar-left " role="search">
+            <div class="form-group">
+              <input type="text" class="form-control animated slideInLeft" name="searchName" id="searchInput">
+            </div>
+            <button type="button" class="btn btn-primary animated slideInRight" id="searchButton"><i class="fa fa-search"> </i> Search</button>
+            <button type="button" class="btn btn-success animated slideInRight" id="randomButton"><i class="fa fa-random"> </i> Random Topic</button>
+          </form>
+          <!-- wiki viewer -->
+        </div>
+        <div class="row" id="wikiViewer">
+          <h1>Wikipedia Viewer</h1>
+          <p>Search for your desired Wikipedia article, or view a random topic.</p>
+        </div>
       </div>
-      <div class="row" id="wikiViewer">
-
-        <h1>Wikipedia Viewer</h1>
-        <p>Search for your desired Wikipedia article, or view a random topic.</p>
-      </div>
-
-  </div>
-  </div>
-
+    </div>
     <div class="col-md-4">
-    <!-- Wikipedia Listings -->
-    <div class="list-group" id="searchResults">
-
-     <!-- <a href="#" class="list-group-item">
+      <!-- Wikipedia Listings -->
+      <div class="list-group" id="searchResults">
+        <!-- <a href="#" class="list-group-item">
         <h4 class="list-group-item-heading">List group item heading</h4>
         <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
       </a> -->
+      </div>
     </div>
-  </div>
   </div>
   <!-- /.container -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -89,19 +84,16 @@
   <script src="app.js"></script>
   <script>
   $(document).ready(function() {
-$("#searchResults").show();
+
+    $("#searchResults").show();
   });
   </script>
-
   <script>
   $("#randomButton").click(function() {
     $("#wikiViewer").html('<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="https://en.wikipedia.org/wiki/Special:Random"></iframe>');
-
-
-
   });
   </script>
-    <!--<script>
+  <!--<script>
   //$("#searchButton").click(function () {
   //
 
