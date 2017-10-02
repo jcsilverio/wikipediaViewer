@@ -42,27 +42,7 @@ function getRealPage() {
     }
   });
 }
-/*
-function updateFrame() {
-  id = Number($(this).attr('id'));
-  console.log('updateFrame id: ', id);
-  getRealPage();
-  for (var key in listInfo) {
 
-    if (listInfo[key].listIndex === id) {
-      updateFrameHTML = '<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="https://en.wikipedia.org/wiki/The_Jimi_Hendrix_Experience"></iframe>';
-
-
-      //updateFrameHTML = '<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="https://en.wikipedia.org/?curid="' + pageNum +'></iframe>';
-
-      //$("#wikiViewer").html(updateFrameHTML);
-    }
-
-  }
-
-  console.log('listInfo[key]', listInfo[key]);
-}
-*/
 
 $("#searchButton").click(function() {
   usersSearch = document.getElementById('searchInput').value;
@@ -90,7 +70,7 @@ $("#searchButton").click(function() {
         var index = -1;
         for (var key in results) {
           index++;
-          $searchListingBegin = '<span class="list-group-item"' + 'id=' + index + '><h4 class="list-group-item-heading">';
+          $searchListingBegin = '<span class="list-group-item toHighlight"' + 'id=' + index + '><h4 class="list-group-item-heading">';
 
           pageNum = results[key].pageid;
 
