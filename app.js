@@ -14,7 +14,7 @@ function getRealPage() {
 
   $.ajax({
     type: "GET",
-     url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + usersSearch + "&prop=info&inprop=url&callback=?",
+    url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + usersSearch + "&prop=info&inprop=url&callback=?",
     contentType: "application/json; charset=utf-8",
     async: true,
     dataType: "json",
@@ -22,20 +22,17 @@ function getRealPage() {
 
       var pageResults = data.query.pages;
       console.log('real page data: ', pageResults);
-      for(var key in pageResults){
+      for (var key in pageResults) {
 
-       if (Number(key) === listPageNum){
+        if (Number(key) === listPageNum) {
 
-        var fullurl = pageResults[key].fullurl;
-        updateFrameHTML = '<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="' + fullurl +'"></iframe>';
+          var fullurl = pageResults[key].fullurl;
+          updateFrameHTML = '<iframe class="animated bounceInLeft" width="100%" height="500px" frameborder="0" src="' + fullurl + '"></iframe>';
 
-      $("#wikiViewer").html(updateFrameHTML);
+          $("#wikiViewer").html(updateFrameHTML);
 
-       }
+        }
       }
-
-
-//&prop=info&inprop=url
     }
   });
 }
@@ -57,25 +54,38 @@ $("#searchButton").click(function() {
 
         $("#searchResults").html('  ');
         results = data.query.pages;
-        console.log('first results: ', results);
-
-
+        console.log('results: ', results);
+        var thumbnail;
         var $searchListingBegin;
         var heading;
-        var $searchListingMid = '</h4><p class="list-group-item-text animated fadeInUpBig">';
+        var $searchListingMid = '<p class="list-group-item-text animated fadeInUpBig">';
         var extract;
-        var $searchListingEnd = '</p></span>';
+        var $searchListingEnd = '</p></div>';
+
         var index = -1;
+        var thumbnailHTML;
         for (var key in results) {
           index++;
-          $searchListingBegin = '<span class="list-group-item toHighlight animated fadeInUp"' + 'id=' + index + '><h4 class="list-group-item-heading animated fadeInUp">';
+          $searchListingBegin1 = '<div class="list-group-item toHighlight animated fadeInUp clearfix"' + 'id=' + index + '>';
 
+          $searchListingBegin2 ='<h4 class="list-group-item-heading animated fadeInUp">';
           pageNum = results[key].pageid;
 
-          heading = results[key].title;
+          heading = results[key].title + '</h4>';
           extract = results[key].extract;
+          if (results[key].thumbnail) {
+            thumbnail = results[key].thumbnail.source;
+            thumbnailHTML = '<img class="img img-responsive pull-left gap-right img-rounded" src="' + thumbnail + '">';
 
-          var $listResult = $searchListingBegin + heading + $searchListingMid + extract + $searchListingEnd;
+          } else {
+            thumbnail = "";
+            thumbnailHTML = "";
+          }
+
+          console.log('thumbnail: ', thumbnail);
+          console.log('thumbnailHTML: ', thumbnailHTML);
+
+          var $listResult =  $searchListingBegin1  + thumbnailHTML + $searchListingBegin2 + heading + $searchListingMid + extract + $searchListingEnd;
 
           $("#searchResults").append($listResult);
 
@@ -84,7 +94,7 @@ $("#searchButton").click(function() {
 
         }
 
-        console.log('results: ', results);
+
 
       },
       error: function(errorMessage) {}
@@ -93,23 +103,3 @@ $("#searchButton").click(function() {
     return;
   }
 });
-
-/*
-$scope.search = function() {
-  $scope.results = [];
-  help.addClass('hide');
-  search.removeClass('fullHeight');
-  var title = input.val();
-  var api = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
-  var cb = '&callback=JSON_CALLBACK';
-  var page = 'https://en.wikipedia.org/?curid=';
-
-  $http.jsonp(api + title + cb)
-    .success(function(data) {
-      var results = data.query.pages;
-      angular.forEach(results, function(v, k) {
-        $scope.results.push({ title: v.title, body: v.extract, page: page + v.pageid })
-      })
-    });
-}
-*/

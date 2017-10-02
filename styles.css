@@ -22,3 +22,7 @@ body {
 .toHighlight:hover {
   background-color: rgb(62, 68, 76)
 }
+
+.gap-right {
+  margin-right: 10px;
+}
