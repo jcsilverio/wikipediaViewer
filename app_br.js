@@ -24,7 +24,6 @@ $("#searchResults").on('click', '.list-group-item', getRealPage);
 
 function getRealPage() {
   id = Number($(this).attr('id'));
-  console.log('getRealPage pageNum: ', listInfo[id].$pageIdNum);
   var listPageNum = listInfo[id].$pageIdNum;
 
   $.ajax({
@@ -36,7 +35,6 @@ function getRealPage() {
     success: function(data, textStatus, jqXHR) {
 
       var pageResults = data.query.pages;
-      console.log('real page data: ', pageResults);
       for (var key in pageResults) {
 
         if (Number(key) === listPageNum) {
@@ -55,7 +53,6 @@ function getRealPage() {
 function init() {
   listInfo = [];
   usersSearch = document.getElementById('searchInput').value;
-  console.log('usersSearch: ', usersSearch);
   if (!$.trim(($("#searchInput")).value).length) { // string  exists AFTER a trim
     $.ajax({
       type: "GET",
@@ -68,7 +65,6 @@ function init() {
 
         $("#searchResults").html('  ');
         results = data.query.pages;
-        console.log('results: ', results);
         var thumbnail;
         var $searchListingBegin;
         var heading;
@@ -95,9 +91,6 @@ function init() {
             thumbnail = "";
             thumbnailHTML = "";
           }
-
-          console.log('thumbnail: ', thumbnail);
-          console.log('thumbnailHTML: ', thumbnailHTML);
 
           var $listResult = $searchListingBegin1 + thumbnailHTML + $searchListingBegin2 + heading + $searchListingMid + extract + $searchListingEnd;
 

@@ -119,4 +119,6 @@ function init() {
   } else {
     return;
   }
+  var form = document.getElementById("searchInput");
+  form.reset();
 }
