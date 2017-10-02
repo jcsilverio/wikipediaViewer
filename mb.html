@@ -14,27 +14,13 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default mobile">
     <div class="container-fluid mobile">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">Wikipedia Viewer</a>
-      </div>
-
-      <ul class="nav navbar-nav navbar-right">
+        <a class="navbar-brand pull-left" href="index.html">Wikipedia Viewer</a>
+         <ul class="nav navbar-nav navbar-right pull-right">
         <li><a href="https://github.com/jcsilverio/wikipediaViewer" target="_blank"><i class="fa fa-github"></i></a></li>
       </ul>
-    </div>
-
-  </nav>
-  <!-- Page Content -->
-  <div class="container-fluid">
-       <div class="jumbotron animated">
         <div class="row" id="buttonForm">
           <form class="navbar-form navbar-left " role="search" id="searchForm">
 
@@ -45,6 +31,16 @@
           </form>
 
         </div>
+      </div>
+
+
+    </div>
+
+  </nav>
+  <!-- Page Content -->
+  <div class="container-fluid mobile">
+       <div class="jumbotron animated">
+
            <!-- wiki viewer -->
         <div class="row" id="wikiViewer">
           <h1>Wikipedia Viewer</h1>
