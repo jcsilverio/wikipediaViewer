@@ -23,7 +23,7 @@ $("#searchResults").on('click', '.list-group-item', getRealPage);
 
 
 function getRealPage() {
-
+$("html, body").animate({ scrollTop: 0, duration: 500, queue: false });
 
   id = Number($(this).attr('id'));
   var listPageNum = listInfo[id].$pageIdNum;
