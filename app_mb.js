@@ -74,6 +74,7 @@ function getRealPage() {
 }
 
 function init() {
+
   $("#wikiViewer").html('');
   $("#wikiViewer").hide();
   $("#searchResults").show();
